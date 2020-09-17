@@ -22,30 +22,49 @@ export class AgilidadAritmeticaComponent implements OnInit {
      this.ocultarVerificar=true;
      this.Tiempo=5; 
     this.nuevoJuego = new JuegoAgilidad();
-    console.info("Inicio agilidad");  
+    this.NuevoJuego();
   }
+
   NuevoJuego() {
     this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
+    this.nuevoJuego = new JuegoAgilidad();
+    this.repetidor = setInterval(()=>{ 
       
       this.Tiempo--;
-      console.log("llego", this.Tiempo);
+      //console.log("llego", this.Tiempo);
       if(this.Tiempo==0 ) {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar=true;
         this.Tiempo=5;
-      }
-      }, 900);
+      }}, 900);
 
   }
+
   verificar()
   {
     this.ocultarVerificar=false;
+    this.nuevoJuego.yaRespondio = true;
     clearInterval(this.repetidor);
-   
+    
+    var rta = parseInt(this.nuevoJuego.numeroIngresado);
 
-   
+    switch(this.nuevoJuego.operador){
+      case "+":
+          if (this.nuevoJuego.numero1 + this.nuevoJuego.numero2 == rta){
+            this.nuevoJuego.gano = true;
+          }
+          else
+            this.nuevoJuego.gano = false;
+          break;
+        case "+":
+          if (this.nuevoJuego.numero1 - this.nuevoJuego.numero2 == rta){
+            this.nuevoJuego.gano = true;
+          }
+          else
+            this.nuevoJuego.gano = false;
+            break;
+    }   
   }  
 
 }

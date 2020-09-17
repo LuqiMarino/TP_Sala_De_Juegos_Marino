@@ -3,11 +3,9 @@ import { Juego } from '../clases/juego'
 export class JuegoAdivina extends  Juego {
     numeroSecreto: number = 0;
     numeroIngresado = 0;
+    yaRespondio = false;
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
         super("Adivina el número",gano,jugador);
-     
-    
-      
       }
     public verificar() {
         if (this.numeroIngresado == this.numeroSecreto) {
@@ -20,7 +18,7 @@ export class JuegoAdivina extends  Juego {
         }
      }
      public generarnumero() {
-        this.numeroSecreto = Math.floor((Math.random() * 100) + 1);
+        this.numeroSecreto = Math.floor((Math.random() * 20) + 1);
         console.info('numero Secreto:' + this.numeroSecreto);
         this.gano = false;
       }

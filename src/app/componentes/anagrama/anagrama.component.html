@@ -1,3 +1,34 @@
-<p>
-  anagrama works!
-</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="Fondo">
+  <img id="bg" src="../../../assets/imagenes/anagrama.png" alt="">
+</div>
+  <div class="VntPrincipal">
+    
+    <h1>{{nuevoJuego.nombre}}!</h1>
+  <h2></h2>
+  
+  <form name="juego">
+  
+    <br><br><br><br>
+    <h1>Que palabra es?</h1><br>
+    <h1>{{nuevoJuego.palabraDesordenada}}</h1>
+    <br><br>
+    <div style="margin-left: 40%;">
+      <h4>Respuesta: </h4>
+      <input [(ngModel)]="nuevoJuego.palabraIngresada" placeholder="Ingrese la palabra" name="palabraIngresada" type="text" class="form-control" style="width:20%;"/><br>
+      <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo Juego</button></h2>
+      <h2 [hidden]="ocultarVerificar" ><button (click)="enviar()" class="btn btn-info btn-lg">Enviar Respuesta </button></h2>
+      <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Tiempo para responder: {{Tiempo}} </button></h2>
+      <h2 [hidden]="nuevoJuego.yaRespondio"><p><i class="fa fa-spinner fa-spin"></i>Esperando respuesta</p></h2><br><br><br>
+  
+      <div [hidden]="!nuevoJuego.yaRespondio">
+        <h3 [hidden]="!nuevoJuego.gano" style="color: green;">Ganaster</h3>
+        <h3 [hidden]="nuevoJuego.gano" style="color:red;">Perdiste, la palabra era: {{nuevoJuego.palabra}}</h3>
+      </div>
+      
+    </div>
+  
+  </form>
+  </div>
+
+

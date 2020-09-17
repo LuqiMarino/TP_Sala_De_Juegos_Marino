@@ -21,6 +21,10 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
+import { PptComponent } from '../componentes/ppt/ppt.component';
+import { PptMasListadoComponent } from '../componentes/ppt-mas-listado/ppt-mas-listado.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { AnagramaMasListadoComponent } from '../componentes/anagrama-mas-listado/anagrama-mas-listado.component';
 
 
 // declaro donde quiero que se dirija
@@ -39,10 +43,14 @@ const MiRuteo = [
 component: JuegosComponent ,
 children:
      [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
+      {path: 'Adivina' , component: AdivinaElNumeroComponent},
+      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},      
+      {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
+      {path: 'Ppt' , component: PptComponent},
+      {path: 'PptMasListado' , component: PptMasListadoComponent},
+      {path: 'Anagrama' , component: AnagramaComponent},
+      {path: 'AnagramaMasListado' , component: AnagramaMasListadoComponent}]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];

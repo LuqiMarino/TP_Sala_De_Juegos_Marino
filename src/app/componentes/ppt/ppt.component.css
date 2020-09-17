@@ -1,0 +1,14 @@
+button{
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    min-width: 10px;
+    min-height: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+h1{
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <h1>{{nuevoJuego.nombre}}!</h1>
+
+ <h2></h2>
+ <form name="juego">
+  <br><br><br>
+    <h1>Elija una opcion para comenzar a jugar</h1>
+
+  <div style="width: 50%; margin-left: 50%;">
+    <button (click)="Jugar('piedra')">
+      <img src="../../../assets/imagenes/piedra.png" alt="">
+    </button><br>
+    <button (click)="Jugar('papel')">
+      <img src="../../../assets/imagenes/papel.png" alt="">
+    </button><br>
+    <button (click)="Jugar('tijera')">
+      <img src="../../../assets/imagenes/tijera.png" alt="">
+    </button>
+  </div>
+  
+
+  <br><br><br><br>
+  <h1 class="resultado">{{mensaje}}</h1>
+
+
+</form>

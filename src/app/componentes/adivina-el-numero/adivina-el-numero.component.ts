@@ -17,7 +17,6 @@ export class AdivinaElNumeroComponent implements OnInit {
  
   constructor() { 
     this.nuevoJuego = new JuegoAdivina();
-    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
   }
   generarnumero() {
@@ -26,45 +25,19 @@ export class AdivinaElNumeroComponent implements OnInit {
   }
   verificar()
   {
+    this.nuevoJuego.yaRespondio = true;
     this.contador++;
     this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
-      this.MostarMensaje("Sos un Genio!!!",true);
+      this.MostarMensaje("Adivinaste! Jugamos de nuevo?",true);
       this.nuevoJuego.numeroSecreto=0;
-
-    }else{
-
-      let mensaje:string;
-      switch (this.contador) {
-        case 1:
-          mensaje="No, intento fallido, animo";
-          break;
-          case 2:
-          mensaje="No,Te estaras Acercando???";
-          break;
-          case 3:
-          mensaje="No es, Yo crei que la tercera era la vencida.";
-          break;
-          case 4:
-          mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
-          break;
-          case 5:
-          mensaje=" intentos y nada.";
-          break;
-          case 6:
-          mensaje="Afortunado en el amor";
-          break;
-      
-        default:
-            mensaje="Ya le erraste "+ this.contador+" veces";
-          break;
-      }
-      this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
-     
-
+    }
+    else{
+      let mensaje:string = "Ya le erraste "+ this.contador+" veces..";
+      this.MostarMensaje(mensaje+" Ayuda :"+this.nuevoJuego.retornarAyuda());
     }
     console.info("numero Secreto:",this.nuevoJuego.gano);  
   }  
